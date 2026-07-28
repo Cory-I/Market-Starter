@@ -5,8 +5,8 @@ const app = express();
 export default app;
 import usersRouter from "#api/users";
 import morgan from "morgan";
-/* import productsRouter from "#api/products";
-import ordersRouter from "#api/orders"; */
+import productsRouter from "#api/products";
+import ordersRouter from "#api/orders";
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));

@@ -1,8 +1,8 @@
 /* db/users */
-import db from "db/client";
+import db from "../db/client.js";
 import bcrypt from "bcrypt";
 import { verifyToken } from "../utils/jwt.js";
-
+/* I DO NOT THINK THE ERROR IS HERE */
 export async function findUserWithToken(token) {
   /* if (!token) throw Error("No token provided");
   const { id } = verifyToken(token);
