@@ -2,14 +2,8 @@
 import db from "../db/client.js";
 import bcrypt from "bcrypt";
 import { verifyToken } from "../utils/jwt.js";
-/* I DO NOT THINK THE ERROR IS HERE */
+
 export async function findUserWithToken(token) {
-  /* if (!token) throw Error("No token provided");
-  const { id } = verifyToken(token);
-  const SQL = `SELECT * FROM users WHERE id = $1`;
-  const { rows } = await db.query(SQL, [id]);
-  if (!rows[0]) throw Error("User not found");
-  return rows[0]; */
   const { id } = verifyToken(token);
   return getUserById(id);
 }

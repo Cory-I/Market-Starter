@@ -7,7 +7,7 @@ import { createToken } from "../utils/jwt.js";
 import bcrypt from "bcrypt";
 const usersRouter = express.Router();
 
-/* Likley not this */
+/* POST users/regiser */
 usersRouter.post("/register", async (req, res, next) => {
   try {
     const { username, password } = req.body;
@@ -23,14 +23,12 @@ usersRouter.post("/register", async (req, res, next) => {
   }
 });
 
-/* 
-usersRouter.get("/", async (req, res, next) => {
-  res.send("yayyy");
-}) */
-/* LIKLEY NOT THIS */
+/* POST users/login */
 usersRouter.post("/login", async (req, res, next) => {
   try {
     const { username, password } = req.body;
+    if (!username || !password)
+      return res.status(400).send("POST body missing");
     const user = await getUserByUsername(username);
     if (!user) return res.status(401).send("Invalid credentials");
     const valid = await bcrypt.compare(password, user.password);
@@ -43,7 +41,4 @@ usersRouter.post("/login", async (req, res, next) => {
   }
 });
 
-usersRouter.get("/me", isLoggedIn, async (req, res, next) => {
-  res.send(req.user);
-});
 export default usersRouter;

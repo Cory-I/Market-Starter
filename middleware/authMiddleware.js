@@ -1,16 +1,7 @@
 /* middleware/authMiddleware */
 import { findUserWithToken } from "../db/users.js";
 import db from "../db/client.js";
-/* export const isLoggedIn = async (req, res, next) => {
-  try {
-    console.log(req.headers.authorization);
-    const user = await findUserWithToken(req.headers.authorization);
-    req.user = user;
-    next();
-  } catch (err) {
-    next(err);
-  }
-}; */
+
 export const isLoggedIn = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;

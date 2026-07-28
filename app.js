@@ -11,8 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use("/users", usersRouter);
-/* app.use("/products", productsRouter);
-app.use("/orders", ordersRouter); */
+app.use("/products", productsRouter);
+app.use("/orders", ordersRouter);
 app.use((err, req, res, next) => {
   // A switch statement can be used instead of if statements
   // when multiple cases are handled the same way.
