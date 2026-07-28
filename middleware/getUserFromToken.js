@@ -1,7 +1,8 @@
+/*  middleware/getUserFromToken.js 
 import { getUserById } from "#db/queries/users";
 import { verifyToken } from "#utils/jwt";
 
-/** Attaches the user to the request if a valid token is provided */
+/** Attaches the user to the request if a valid token is provided s
 export default async function getUserFromToken(req, res, next) {
   const authorization = req.get("authorization");
   if (!authorization || !authorization.startsWith("Bearer ")) return next();
@@ -17,3 +18,4 @@ export default async function getUserFromToken(req, res, next) {
     res.status(401).send("Invalid token.");
   }
 }
+ */
